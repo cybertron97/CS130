@@ -71,7 +71,7 @@ int main()
     a.append(10);
     a.append(20);
 
-    for(size_t i = 0; i < 1000000; i++)
+    for(size_t i = 0; i < 100; i++)
         a.append(a[i]);
 
     long sum = 0;
