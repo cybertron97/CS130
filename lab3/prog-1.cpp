@@ -43,18 +43,40 @@ public:
         if(n > capacity);
         {
             T * new_data = new T[n];
+             // delete [] data;
             for(size_t i = 0; i < num_entries; i++)
                 new_data[i] = data[i];
+            T * temp = data;
             data = new_data;
+            delete [] temp;
+
             capacity = n;
+
+
+    //        delete [] data ;
+    //        data = new_data;
+     //       capacity = n;
         }
     }
 
     void append(const T& item)
     {
-        resize(num_entries + 1);
+//	if(num_entries >= capacity) 
+  //            {
+//		resize(num_entries * 2);
+//		}
+//
+  //      data[num_entries] = item;
+    //    num_entries++;
+	    if (num_entries > capacity) 
+	    {
+       		resize(num_entries * 2);
+            } 
         data[num_entries] = item;
+    //    delete [] data;
         num_entries++;
+
+
     }
 
     void clear()
@@ -73,13 +95,14 @@ int main()
 
     for(size_t i = 0; i < 100; i++)
         a.append(a[i]);
-
+        return 0; 
+     
     long sum = 0;
     for(size_t i = 0; i < a.size(); i++)
         sum += a[i];
 
     std::cout << "sum: " << sum << std::endl;
-
+   // clear(); 
     return 0;
 }
 
