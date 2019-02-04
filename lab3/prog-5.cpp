@@ -53,22 +53,46 @@ struct list
     node * add_after(node* n, const std::string& str)
     {
         node * a = new node(n, n->next, str);
-   //     n->next->prev = a;
-        n->next = a;
+   //   n->next->prev = a;
+      n->next = a;
         return a;
     }
 
     void remove(node* n)
     {
         
-     
-        struct node *temp=n ;
-        temp->prev->next = n->next;
-        temp->next->prev = n->prev; 
+ 	if (n==head) 
+               {
+			node* temp =n ;
+			temp->next->prev =NULL; 
+			temp->next= temp->next; 
+ 		        delete temp; 
+
+		}     
+        else{
+              n->prev->next = n->next; 
+	      n->next->next->data = n->next->data; 
+              n->next->prev->data = n->prev->data; 
+	       
+              n->prev = NULL; 
+	      n-> next = NULL;
+	      delete n; 
+
+
+
+              }   
+
+
+
+
+
+ //  struct node *temp=n ;
+       // temp->prev->next = n->next;
+       // temp->next->prev = n->prev; 
   
       // n->next->prev = n->prev;
        //  n->next = n->prev;
-        delete n;
+       // delete n;
     }
 
     void print()
