@@ -47,10 +47,8 @@ GLuint loadShader(const char *vertexfilename, const char *fragmentfilename) {
   // TODO: Functions you should know to implement this
   // glCreateShader
   program = glCreateProgram();
- 
-    
-    vertex_shader_id = glCreateShader(GL_VERTEX_SHADER);
-    fragment_shader_id = glCreateShader(GL_FRAGMENT_SHADER);
+  vertex_shader_id = glCreateShader(GL_VERTEX_SHADER);
+  fragment_shader_id = glCreateShader(GL_FRAGMENT_SHADER);
    
     string vertex_shader = getTextFile(vertexfilename);
     string fragment_shader = getTextFile(fragmentfilename);
